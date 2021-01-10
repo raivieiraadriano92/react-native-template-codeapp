@@ -25,6 +25,9 @@
 - [React Navigation](https://reactnavigation.org/)
 - [Styled-components](https://styled-components.com/)
 - [Storybook](https://storybook.js.org/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [EditorConfig](https://editorconfig.org/)
 
 ## :arrow_forward: Usage
 
@@ -39,3 +42,7 @@ Contributions are very welcome. Please check out the [contributing document](CON
 ## :bookmark: License
 
 This project is [MIT](LICENSE) licensed.
+
+## :email Contact
+
+Raí Vieira Adriano - [Github](https://github.com/raivieiraadriano92) - **raivieiraadriano92@gmail.com**
