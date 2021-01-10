@@ -43,6 +43,6 @@ Contributions are very welcome. Please check out the [contributing document](CON
 
 This project is [MIT](LICENSE) licensed.
 
-## :email Contact
+## :email: Contact
 
 Raí Vieira Adriano - [Github](https://github.com/raivieiraadriano92) - **raivieiraadriano92@gmail.com**
