@@ -10,7 +10,7 @@ export default styled.View<Props>`
   height: ${props =>
     props.type === 'vertical'
       ? '100%'
-      : `${normalize(props.theme.spacing[props.size])}px`};
+      : `${normalize(props.theme.spacing[props.size], 'height')}px`};
   width: ${props =>
     props.type === 'vertical'
       ? `${normalize(props.theme.spacing[props.size])}px`

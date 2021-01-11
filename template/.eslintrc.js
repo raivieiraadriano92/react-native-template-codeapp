@@ -37,8 +37,23 @@ module.exports = {
         tsx: 'never'
       }
     ],
+    'react/jsx-props-no-spreading': ['off'],
+    'react/require-default-props': ['off'],
+    'react/jsx-wrap-multilines': [
+      'error',
+      {
+        declaration: 'parens-new-line',
+        assignment: 'parens-new-line',
+        return: 'parens-new-line',
+        arrow: 'parens-new-line',
+        condition: 'parens-new-line',
+        logical: 'ignore',
+        prop: 'ignore'
+      }
+    ],
     'no-use-before-define': 'off',
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    'no-underscore-dangle': ['off']
   },
   settings: {
     'import/resolver': {

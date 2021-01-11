@@ -12,6 +12,7 @@ type Type =
   | 'body1'
   | 'body2'
   | 'body3'
+  | 'body4'
 
 export type Props = Pick<TextStyle, 'flexWrap' | 'textAlign'> & {
   color?: keyof DefaultTheme['colors']
@@ -56,6 +57,10 @@ export const styles: {
   body3: {
     fontSize: 12,
     fontWeight: '400'
+  },
+  body4: {
+    fontSize: 10,
+    fontWeight: '500'
   }
 }
 

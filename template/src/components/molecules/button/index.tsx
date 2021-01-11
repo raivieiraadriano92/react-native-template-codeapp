@@ -34,10 +34,10 @@ export default function ({
 
       if (size === 'default') {
         _style.borderRadius = normalize(14)
-        _style.height = normalize(48)
+        _style.height = normalize(48, 'height')
       } else if (size === 'small') {
         _style.borderRadius = normalize(8)
-        _style.height = normalize(32)
+        _style.height = normalize(32, 'height')
       }
 
       if (type === 'primary') {
@@ -74,20 +74,21 @@ export default function ({
 
       return _style
     },
-    []
+    [disabled, size, theme.colors, type]
   )
 
   const textColor = useMemo<keyof DefaultTheme['colors']>(() => {
     if (type === 'primary') {
       return 'white'
-    } else if (type === 'secondary' && disabled) {
-      return 'white'
-    } else if (type === 'tertiary' && disabled) {
-      return 'text40'
-    } else {
-      return 'primary100'
     }
-  }, [])
+    if (type === 'secondary' && disabled) {
+      return 'white'
+    }
+    if (type === 'tertiary' && disabled) {
+      return 'text40'
+    }
+    return 'primary100'
+  }, [disabled, type])
 
   return (
     <Pressable {...{ disabled, style, ...props }}>

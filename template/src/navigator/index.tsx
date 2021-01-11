@@ -21,7 +21,7 @@ export default function (): JSX.Element {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          cardStyle: { backgroundColor: theme.colors.background }
+          cardStyle: { backgroundColor: theme.colors.systemBackgroundPrimary }
         }}
       >
         <Stack.Screen name="Home" component={Home} />
