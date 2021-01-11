@@ -41,30 +41,26 @@ export default function ({
       }
 
       if (type === 'primary') {
+        _style.borderColor = theme.colors.primary40
+
         if (disabled) {
           _style.backgroundColor = theme.colors.text20
         } else if (pressed) {
           _style.backgroundColor = theme.colors.primary120
+          _style.borderColor = theme.colors.primary120
         } else {
           _style.backgroundColor = theme.colors.primary100
         }
-
-        _style.borderColor = pressed
-          ? theme.colors.primary120
-          : theme.colors.primary40
       } else if (type === 'secondary') {
+        _style.borderColor = theme.colors.primary100
+
         if (disabled) {
           _style.backgroundColor = theme.colors.text20
+          _style.borderColor = theme.colors.text40
         } else if (pressed) {
           _style.backgroundColor = theme.colors.primary40
         } else {
           _style.backgroundColor = theme.colors.white
-        }
-
-        if (disabled) {
-          _style.borderColor = theme.colors.text40
-        } else {
-          _style.borderColor = theme.colors.primary100
         }
       } else if (type === 'tertiary') {
         if (pressed) {
