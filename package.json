@@ -26,5 +26,7 @@
   "bugs": {
     "url": "https://github.com/raivieiraadriano92/react-native-template-codeapp/issues"
   },
-  "homepage": "https://github.com/raivieiraadriano92/react-native-template-codeapp#readme"
+  "homepage": "https://github.com/raivieiraadriano92/react-native-template-codeapp#readme",
+  "dependencies": {},
+  "devDependencies": {}
 }

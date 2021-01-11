@@ -11,6 +11,15 @@ const theme: DefaultTheme = {
   colors: {
     background: '#FAFAFA',
     black: '#000',
+    primary120: '#3C49F5',
+    primary100: '#5460FE',
+    primary80: '#868EFF',
+    primary60: '#BDC1FF',
+    primary40: '#E2E4FF',
+    text100: '#051E56',
+    text80: '#526286',
+    text60: '#9CA5BA',
+    text40: '#B3BCCF',
     transparent: 'transparent',
     white: '#FFF'
   },

@@ -1,5 +1,6 @@
 import { TextStyle } from 'react-native'
 import styled, { DefaultTheme } from 'styled-components/native'
+import normalize from 'react-native-normalize'
 
 type Type =
   | 'h1'
@@ -18,7 +19,7 @@ export type Props = Pick<TextStyle, 'flexWrap' | 'textAlign'> & {
 }
 
 export const styles: {
-  [K in Type]: Pick<TextStyle, 'fontSize' | 'fontWeight'>
+  [K in Type]: Required<Pick<TextStyle, 'fontSize' | 'fontWeight'>>
 } = {
   h1: {
     fontSize: 48,
@@ -60,8 +61,8 @@ export const styles: {
 
 export default styled.Text<Props>`
   ${props => (props.flexWrap ? `flex:1; flex-wrap: ${props.flexWrap};` : '')}
-  color: ${props => props.theme.colors[props.color || 'black']};
-  font-size: ${props => styles[props.type].fontSize}px;
+  color: ${props => props.theme.colors[props.color || 'text100']};
+  font-size: ${props => normalize(styles[props.type].fontSize)}px;
   font-weight: ${props => styles[props.type].fontWeight || 'normal'};
   text-align: ${props => props.textAlign || 'left'};
 `
