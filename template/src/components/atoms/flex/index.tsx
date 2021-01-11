@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import { StyleSheet, View, ViewProps, ViewStyle } from 'react-native'
 import { DefaultTheme, useTheme } from 'styled-components/native'
+import normalize from 'react-native-normalize'
 
 type Props = PropsWithChildren<
   Pick<ViewProps, 'style'> &
@@ -69,39 +70,55 @@ export default function ({
       style={StyleSheet.compose(
         {
           ...(flex ? { flex: 1 } : {}),
-          ...(margin ? { margin: theme.spacing[margin] } : {}),
+          ...(margin ? { margin: normalize(theme.spacing[margin]) } : {}),
           ...(marginBottom
-            ? { marginBottom: theme.spacing[marginBottom] }
+            ? { marginBottom: normalize(theme.spacing[marginBottom]) }
             : {}),
-          ...(marginEnd ? { marginEnd: theme.spacing[marginEnd] } : {}),
+          ...(marginEnd
+            ? { marginEnd: normalize(theme.spacing[marginEnd]) }
+            : {}),
           ...(marginHorizontal
-            ? { marginHorizontal: theme.spacing[marginHorizontal] }
+            ? { marginHorizontal: normalize(theme.spacing[marginHorizontal]) }
             : {}),
-          ...(marginLeft ? { marginLeft: theme.spacing[marginLeft] } : {}),
-          ...(marginRight ? { marginRight: theme.spacing[marginRight] } : {}),
-          ...(marginStart ? { marginStart: theme.spacing[marginStart] } : {}),
-          ...(marginTop ? { marginTop: theme.spacing[marginTop] } : {}),
+          ...(marginLeft
+            ? { marginLeft: normalize(theme.spacing[marginLeft]) }
+            : {}),
+          ...(marginRight
+            ? { marginRight: normalize(theme.spacing[marginRight]) }
+            : {}),
+          ...(marginStart
+            ? { marginStart: normalize(theme.spacing[marginStart]) }
+            : {}),
+          ...(marginTop
+            ? { marginTop: normalize(theme.spacing[marginTop]) }
+            : {}),
           ...(marginVertical
-            ? { marginVertical: theme.spacing[marginVertical] }
+            ? { marginVertical: normalize(theme.spacing[marginVertical]) }
             : {}),
-          ...(padding ? { padding: theme.spacing[padding] } : {}),
+          ...(padding ? { padding: normalize(theme.spacing[padding]) } : {}),
           ...(paddingBottom
-            ? { paddingBottom: theme.spacing[paddingBottom] }
+            ? { paddingBottom: normalize(theme.spacing[paddingBottom]) }
             : {}),
-          ...(paddingEnd ? { paddingEnd: theme.spacing[paddingEnd] } : {}),
+          ...(paddingEnd
+            ? { paddingEnd: normalize(theme.spacing[paddingEnd]) }
+            : {}),
           ...(paddingHorizontal
-            ? { paddingHorizontal: theme.spacing[paddingHorizontal] }
+            ? { paddingHorizontal: normalize(theme.spacing[paddingHorizontal]) }
             : {}),
-          ...(paddingLeft ? { paddingLeft: theme.spacing[paddingLeft] } : {}),
+          ...(paddingLeft
+            ? { paddingLeft: normalize(theme.spacing[paddingLeft]) }
+            : {}),
           ...(paddingRight
-            ? { paddingRight: theme.spacing[paddingRight] }
+            ? { paddingRight: normalize(theme.spacing[paddingRight]) }
             : {}),
           ...(paddingStart
-            ? { paddingStart: theme.spacing[paddingStart] }
+            ? { paddingStart: normalize(theme.spacing[paddingStart]) }
             : {}),
-          ...(paddingTop ? { paddingTop: theme.spacing[paddingTop] } : {}),
+          ...(paddingTop
+            ? { paddingTop: normalize(theme.spacing[paddingTop]) }
+            : {}),
           ...(paddingVertical
-            ? { paddingVertical: theme.spacing[paddingVertical] }
+            ? { paddingVertical: normalize(theme.spacing[paddingVertical]) }
             : {}),
           ...props
         },
