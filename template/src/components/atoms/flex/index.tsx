@@ -15,20 +15,16 @@ type Props = PropsWithChildren<
           ViewStyle,
           | 'margin'
           | 'marginBottom'
-          | 'marginEnd'
           | 'marginHorizontal'
           | 'marginLeft'
           | 'marginRight'
-          | 'marginStart'
           | 'marginTop'
           | 'marginVertical'
           | 'padding'
           | 'paddingBottom'
-          | 'paddingEnd'
           | 'paddingHorizontal'
           | 'paddingLeft'
           | 'paddingRight'
-          | 'paddingStart'
           | 'paddingTop'
           | 'paddingVertical'
         >,
@@ -44,20 +40,16 @@ export default function ({
   flex = false,
   margin,
   marginBottom,
-  marginEnd,
   marginHorizontal,
   marginLeft,
   marginRight,
-  marginStart,
   marginTop,
   marginVertical,
   padding,
   paddingBottom,
-  paddingEnd,
   paddingHorizontal,
   paddingLeft,
   paddingRight,
-  paddingStart,
   paddingTop,
   paddingVertical,
   style,
@@ -72,10 +64,7 @@ export default function ({
           ...(flex ? { flex: 1 } : {}),
           ...(margin ? { margin: normalize(theme.spacing[margin]) } : {}),
           ...(marginBottom
-            ? { marginBottom: normalize(theme.spacing[marginBottom]) }
-            : {}),
-          ...(marginEnd
-            ? { marginEnd: normalize(theme.spacing[marginEnd]) }
+            ? { marginBottom: normalize(theme.spacing[marginBottom], 'height') }
             : {}),
           ...(marginHorizontal
             ? { marginHorizontal: normalize(theme.spacing[marginHorizontal]) }
@@ -86,21 +75,22 @@ export default function ({
           ...(marginRight
             ? { marginRight: normalize(theme.spacing[marginRight]) }
             : {}),
-          ...(marginStart
-            ? { marginStart: normalize(theme.spacing[marginStart]) }
-            : {}),
           ...(marginTop
-            ? { marginTop: normalize(theme.spacing[marginTop]) }
+            ? { marginTop: normalize(theme.spacing[marginTop], 'height') }
             : {}),
           ...(marginVertical
-            ? { marginVertical: normalize(theme.spacing[marginVertical]) }
+            ? {
+                marginVertical: normalize(
+                  theme.spacing[marginVertical],
+                  'height'
+                )
+              }
             : {}),
           ...(padding ? { padding: normalize(theme.spacing[padding]) } : {}),
           ...(paddingBottom
-            ? { paddingBottom: normalize(theme.spacing[paddingBottom]) }
-            : {}),
-          ...(paddingEnd
-            ? { paddingEnd: normalize(theme.spacing[paddingEnd]) }
+            ? {
+                paddingBottom: normalize(theme.spacing[paddingBottom], 'height')
+              }
             : {}),
           ...(paddingHorizontal
             ? { paddingHorizontal: normalize(theme.spacing[paddingHorizontal]) }
@@ -111,14 +101,16 @@ export default function ({
           ...(paddingRight
             ? { paddingRight: normalize(theme.spacing[paddingRight]) }
             : {}),
-          ...(paddingStart
-            ? { paddingStart: normalize(theme.spacing[paddingStart]) }
-            : {}),
           ...(paddingTop
-            ? { paddingTop: normalize(theme.spacing[paddingTop]) }
+            ? { paddingTop: normalize(theme.spacing[paddingTop], 'height') }
             : {}),
           ...(paddingVertical
-            ? { paddingVertical: normalize(theme.spacing[paddingVertical]) }
+            ? {
+                paddingVertical: normalize(
+                  theme.spacing[paddingVertical],
+                  'height'
+                )
+              }
             : {}),
           ...props
         },
