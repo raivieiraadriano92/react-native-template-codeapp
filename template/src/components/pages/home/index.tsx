@@ -6,7 +6,7 @@ import { Button } from 'src/components/molecules'
 
 export default function () {
   return (
-    <ScrollView contentContainerStyle={{ flex: 1 }}>
+    <ScrollView>
       <Flex padding="medium">
         <Text type="h1">Headline 1</Text>
         <Text type="h2">Headline 2</Text>

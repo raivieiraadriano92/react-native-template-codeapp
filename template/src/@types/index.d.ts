@@ -16,6 +16,7 @@ declare module 'styled-components' {
       text80: string
       text60: string
       text40: string
+      text20: string
       transparent: string
       white: string
     }

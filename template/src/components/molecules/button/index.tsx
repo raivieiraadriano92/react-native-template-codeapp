@@ -42,7 +42,7 @@ export default function ({
 
       if (type === 'primary') {
         if (disabled) {
-          _style.backgroundColor = '#DDE4F3'
+          _style.backgroundColor = theme.colors.text20
         } else if (pressed) {
           _style.backgroundColor = theme.colors.primary120
         } else {
@@ -54,7 +54,7 @@ export default function ({
           : theme.colors.primary40
       } else if (type === 'secondary') {
         if (disabled) {
-          _style.backgroundColor = '#DDE4F3'
+          _style.backgroundColor = theme.colors.text20
         } else if (pressed) {
           _style.backgroundColor = theme.colors.primary40
         } else {

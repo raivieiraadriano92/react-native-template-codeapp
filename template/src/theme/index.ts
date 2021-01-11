@@ -20,6 +20,7 @@ const theme: DefaultTheme = {
     text80: '#526286',
     text60: '#9CA5BA',
     text40: '#B3BCCF',
+    text20: '#DDE4F3',
     transparent: 'transparent',
     white: '#FFF'
   },
