@@ -28,6 +28,7 @@
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [EditorConfig](https://editorconfig.org/)
+- Basic components full responsive
 
 ## :arrow_forward: Usage
 
