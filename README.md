@@ -33,7 +33,7 @@
 ## :arrow_forward: Usage
 
 ```sh
-npx react-native init MyApp --template react-native-template-codeapp
+npx react-native init MyAwesomeApp --template react-native-template-codeapp
 ```
 
 ## :computer: Contributing
