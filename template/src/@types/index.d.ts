@@ -5,23 +5,13 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       black: string
-      error100: string
-      error10: string
-      primary120: string
-      primary100: string
-      primary80: string
-      primary60: string
-      primary40: string
-      success100: string
-      success10: string
+      error: string
+      primary: string
+      success: string
       systemBackgroundPrimary: string
       systemBackgroundSecondary: string
       systemLine: string
-      text100: string
-      text80: string
-      text60: string
-      text40: string
-      text20: string
+      text: string
       transparent: string
       white: string
     }

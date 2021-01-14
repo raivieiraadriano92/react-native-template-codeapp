@@ -3,13 +3,23 @@ import { ScrollView } from 'react-native'
 
 import { Flex, Space, Text } from 'src/components/atoms'
 import { Button, Input } from 'src/components/molecules'
+import { useGeneralContext } from 'src/contexts/general'
 
 export default function (): JSX.Element {
   const [text, setText] = useState<string>('Some title')
 
+  const generalContext = useGeneralContext()
+
   return (
     <ScrollView>
       <Flex padding="medium">
+        <Button
+          onPress={() => {
+            generalContext.toggleDarkMode()
+          }}
+          title={generalContext.darkMode ? 'Light' : 'Dark'}
+        />
+        <Space size="large" />
         <Text type="h1">Headline 1</Text>
         <Text type="h2">Headline 2</Text>
         <Text type="h3">Headline 3</Text>
@@ -53,29 +63,76 @@ export default function (): JSX.Element {
           value={text}
         />
         <Space size="large" />
-        <Button disabled onPress={() => {}} title="Button" />
-        <Space size="small" />
-        <Button onPress={() => {}} title="Button" />
-        <Space size="small" />
-        <Button onPress={() => {}} size="small" title="Button" />
-        <Space size="small" />
-        <Button disabled onPress={() => {}} title="Button" type="secondary" />
-        <Space size="small" />
-        <Button onPress={() => {}} title="Button" type="secondary" />
+        <Button
+          disabled
+          onPress={() => {
+            //
+          }}
+          title="Button"
+        />
         <Space size="small" />
         <Button
-          onPress={() => {}}
+          onPress={() => {
+            //
+          }}
+          title="Button"
+        />
+        <Space size="small" />
+        <Button
+          onPress={() => {
+            //
+          }}
+          size="small"
+          title="Button"
+        />
+        <Space size="small" />
+        <Button
+          disabled
+          onPress={() => {
+            //
+          }}
+          title="Button"
+          type="secondary"
+        />
+        <Space size="small" />
+        <Button
+          onPress={() => {
+            //
+          }}
+          title="Button"
+          type="secondary"
+        />
+        <Space size="small" />
+        <Button
+          onPress={() => {
+            //
+          }}
           size="small"
           title="Button"
           type="secondary"
         />
         <Space size="small" />
-        <Button disabled onPress={() => {}} title="Button" type="tertiary" />
-        <Space size="small" />
-        <Button onPress={() => {}} title="Button" type="tertiary" />
+        <Button
+          disabled
+          onPress={() => {
+            //
+          }}
+          title="Button"
+          type="tertiary"
+        />
         <Space size="small" />
         <Button
-          onPress={() => {}}
+          onPress={() => {
+            //
+          }}
+          title="Button"
+          type="tertiary"
+        />
+        <Space size="small" />
+        <Button
+          onPress={() => {
+            //
+          }}
           size="small"
           title="Button"
           type="tertiary"

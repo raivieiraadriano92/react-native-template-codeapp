@@ -2,6 +2,8 @@ import { TextStyle } from 'react-native'
 import styled, { DefaultTheme } from 'styled-components/native'
 import normalize from 'react-native-normalize'
 
+import { hexToRgba } from 'src/utils'
+
 type Type =
   | 'h1'
   | 'h2'
@@ -15,6 +17,7 @@ type Type =
   | 'body4'
 
 export type Props = Pick<TextStyle, 'flexWrap' | 'textAlign'> & {
+  alpha?: number
   color?: keyof DefaultTheme['colors']
   type: Type
 }
@@ -66,7 +69,8 @@ export const styles: {
 
 export default styled.Text<Props>`
   ${props => (props.flexWrap ? `flex:1; flex-wrap: ${props.flexWrap};` : '')}
-  color: ${props => props.theme.colors[props.color || 'text100']};
+  color: ${props =>
+    hexToRgba(props.theme.colors[props.color || 'text'], props.alpha)};
   font-size: ${props => normalize(styles[props.type].fontSize)}px;
   font-weight: ${props => styles[props.type].fontWeight || 'normal'};
   text-align: ${props => props.textAlign || 'left'};

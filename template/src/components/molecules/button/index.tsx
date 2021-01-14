@@ -6,8 +6,10 @@ import {
 } from 'react-native'
 import { DefaultTheme, useTheme } from 'styled-components/native'
 import normalize from 'react-native-normalize'
+import Color from 'color'
 
 import { Flex, Text } from 'src/components/atoms'
+import { hexToRgba } from 'src/utils'
 
 type Type = 'primary' | 'secondary' | 'tertiary'
 
@@ -41,31 +43,37 @@ export default function ({
       }
 
       if (type === 'primary') {
-        _style.borderColor = theme.colors.primary40
-
         if (disabled) {
-          _style.backgroundColor = theme.colors.text20
+          _style.backgroundColor = theme.colors.systemBackgroundSecondary
+          _style.borderColor = theme.colors.systemBackgroundSecondary
         } else if (pressed) {
-          _style.backgroundColor = theme.colors.primary120
-          _style.borderColor = theme.colors.primary120
+          _style.backgroundColor = Color(theme.colors.primary)
+            .darken(0.1)
+            .toString()
+          _style.borderColor = Color(theme.colors.primary)
+            .darken(0.1)
+            .toString()
         } else {
-          _style.backgroundColor = theme.colors.primary100
+          _style.backgroundColor = theme.colors.primary
+          _style.borderColor = theme.colors.primary
         }
       } else if (type === 'secondary') {
-        _style.borderColor = theme.colors.primary100
+        _style.borderColor = theme.colors.primary
 
         if (disabled) {
-          _style.backgroundColor = theme.colors.text20
-          _style.borderColor = theme.colors.text40
+          _style.backgroundColor = theme.colors.systemBackgroundSecondary
+          _style.borderColor = Color(theme.colors.systemBackgroundSecondary)
+            .darken(0.2)
+            .toString()
         } else if (pressed) {
-          _style.backgroundColor = theme.colors.primary40
+          _style.backgroundColor = hexToRgba(theme.colors.primary, 0.2)
         } else {
-          _style.backgroundColor = theme.colors.white
+          _style.backgroundColor = theme.colors.systemBackgroundPrimary
         }
       } else if (type === 'tertiary') {
         if (pressed) {
-          _style.backgroundColor = theme.colors.primary40
-          _style.borderColor = theme.colors.primary40
+          _style.backgroundColor = hexToRgba(theme.colors.primary, 0.2)
+          _style.borderColor = theme.colors.transparent
         } else {
           _style.backgroundColor = theme.colors.transparent
           _style.borderColor = theme.colors.transparent
@@ -77,23 +85,27 @@ export default function ({
     [disabled, size, theme.colors, type]
   )
 
-  const textColor = useMemo<keyof DefaultTheme['colors']>(() => {
-    if (type === 'primary') {
-      return 'white'
+  const textColor = useMemo(() => {
+    let alpha = 1
+    let color: keyof DefaultTheme['colors'] = 'primary'
+
+    if (type === 'primary' && !disabled) {
+      color = 'white'
+    } else if (disabled) {
+      alpha = 0.2
+      color = 'text'
     }
-    if (type === 'secondary' && disabled) {
-      return 'white'
+
+    return {
+      alpha,
+      color
     }
-    if (type === 'tertiary' && disabled) {
-      return 'text40'
-    }
-    return 'primary100'
   }, [disabled, type])
 
   return (
     <Pressable {...{ disabled, style, ...props }}>
       <Flex alignItems="center" flex justifyContent="center">
-        <Text color={textColor} type="body1">
+        <Text alpha={textColor.alpha} color={textColor.color} type="body1">
           {title}
         </Text>
       </Flex>

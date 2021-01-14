@@ -8,29 +8,28 @@ const spacing: DefaultTheme['spacing'] = {
   large: 40
 }
 
+const lightColors: DefaultTheme['colors'] = {
+  black: '#000',
+  error: '#FE5454',
+  primary: '#5460FE',
+  success: '#6CDD8B',
+  systemBackgroundPrimary: '#FFF',
+  systemBackgroundSecondary: '#F5F8FD',
+  systemLine: '#EEF2F9',
+  text: '#051E56',
+  transparent: 'transparent',
+  white: '#FFF'
+}
+
+export const darkColors: DefaultTheme['colors'] = {
+  ...lightColors,
+  systemBackgroundPrimary: '#151835',
+  systemBackgroundSecondary: '#272B54',
+  text: lightColors.white
+}
+
 const theme: DefaultTheme = {
-  colors: {
-    black: '#000',
-    error100: '#FE5454',
-    error10: '#ffeeee',
-    primary120: '#3C49F5',
-    primary100: '#5460FE',
-    primary80: '#868EFF',
-    primary60: '#BDC1FF',
-    primary40: '#E2E4FF',
-    success100: '#6CDD8B',
-    success10: '#F1FCF4',
-    systemBackgroundPrimary: '#FFF',
-    systemBackgroundSecondary: '#F5F8FD',
-    systemLine: '#EEF2F9',
-    text100: '#051E56',
-    text80: '#526286',
-    text60: '#9CA5BA',
-    text40: '#B3BCCF',
-    text20: '#DDE4F3',
-    transparent: 'transparent',
-    white: '#FFF'
-  },
+  colors: lightColors,
   hitSlop: {
     top: spacing.tiny,
     left: spacing.tiny,

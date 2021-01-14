@@ -5,6 +5,7 @@ import normalize from 'react-native-normalize'
 
 import { Flex, Icon, Space, Text } from 'src/components/atoms'
 import { styles as TextStyles } from 'src/components/atoms/text'
+import { hexToRgba } from 'src/utils'
 
 type Props = TextInputProps & {
   label: string
@@ -29,44 +30,33 @@ export default function ({
 
   const theme = useTheme()
 
-  const statusColor = useMemo<
-    Record<'base' | 'light', keyof DefaultTheme['colors']>
-  >(() => {
-    if (status === 'error') {
-      return {
-        base: 'error100',
-        light: 'error10'
-      }
-    }
-
-    return {
-      base: 'success100',
-      light: 'success10'
-    }
-  }, [status])
+  const statusColor = useMemo<keyof DefaultTheme['colors']>(
+    () => (status === 'error' ? 'error' : 'success'),
+    [status]
+  )
 
   const style = useMemo<TextInputProps['style']>(() => {
     const _style: TextInputProps['style'] = {
+      borderColor: theme.colors.systemBackgroundPrimary,
       borderRadius: normalize(12),
       borderWidth: 1,
-      color: theme.colors.text100,
+      color: theme.colors.text,
       height: inputHeight,
       paddingHorizontal: normalize(theme.spacing.small),
       ...TextStyles.body2
     }
 
     if ((!editable || value) && !focused) {
-      _style.backgroundColor = theme.colors.white
+      _style.backgroundColor = theme.colors.systemBackgroundPrimary
+      _style.borderColor = theme.colors.systemLine
     } else {
-      _style.backgroundColor = theme.colors.systemLine
+      _style.backgroundColor = theme.colors.systemBackgroundSecondary
     }
 
     if (focused) {
-      _style.borderColor = theme.colors.primary100
+      _style.borderColor = theme.colors.primary
     } else if (status) {
-      _style.borderColor = theme.colors[statusColor.base]
-    } else {
-      _style.borderColor = theme.colors.systemLine
+      _style.borderColor = theme.colors[statusColor]
     }
 
     return _style
@@ -74,7 +64,7 @@ export default function ({
     editable,
     focused,
     status,
-    statusColor.base,
+    statusColor,
     theme.colors,
     theme.spacing.small,
     value
@@ -82,7 +72,7 @@ export default function ({
 
   return (
     <Flex>
-      <Text color="text80" type="body3">
+      <Text alpha={0.6} type="body3">
         {label}
       </Text>
       <Space size="tiny" />
@@ -97,14 +87,14 @@ export default function ({
             onFocus && onFocus(e)
             setFocused(true)
           }}
-          placeholderTextColor={theme.colors.text40}
+          placeholderTextColor={hexToRgba(theme.colors.text, 0.4)}
         />
         {!!status && !focused && (
           <Flex
             alignItems="center"
             justifyContent="center"
             style={{
-              backgroundColor: theme.colors[statusColor.light],
+              backgroundColor: hexToRgba(theme.colors[statusColor], 0.1),
               borderRadius: normalize(24),
               height: normalize(24),
               position: 'absolute',
@@ -113,19 +103,19 @@ export default function ({
               width: normalize(24)
             }}
           >
-            {status === 'error' && (
-              <Icon.ICExclamation color={statusColor.base} />
-            )}
-            {status === 'success' && (
-              <Icon.ICChecklist color={statusColor.base} />
-            )}
+            {status === 'error' && <Icon.ICExclamation color={statusColor} />}
+            {status === 'success' && <Icon.ICChecklist color={statusColor} />}
           </Flex>
         )}
       </Flex>
       {!!statusMessage && (
         <>
           <Space size="tiny" />
-          <Text color={status ? statusColor.base : 'text40'} type="body4">
+          <Text
+            {...(status ? {} : { alpha: 0.4 })}
+            color={status ? statusColor : 'text'}
+            type="body4"
+          >
             {statusMessage}
           </Text>
         </>
