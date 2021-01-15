@@ -2,10 +2,16 @@ import React from 'react'
 import Svg, { Circle, Path } from 'react-native-svg'
 import { useTheme } from 'styled-components/native'
 
+import { hexToRgba } from 'src/utils'
+
 import { Props } from '..'
 import { resize } from '../utils'
 
-export default function ({ color = 'text60', size = 24 }: Props): JSX.Element {
+export default function ({
+  alpha = 1,
+  color = 'text',
+  size = 24
+}: Props): JSX.Element {
   const { height, width } = resize({ height: 19.94, size, width: 19.94 })
 
   const theme = useTheme()
@@ -16,12 +22,12 @@ export default function ({ color = 'text60', size = 24 }: Props): JSX.Element {
         cx={12}
         cy={12}
         r={7.25}
-        stroke={theme.colors[color]}
+        stroke={hexToRgba(theme.colors[color], alpha)}
         strokeWidth={1.5}
       />
       <Path
         d="M12 8.5V13M12 15.5v-.25"
-        stroke={theme.colors[color]}
+        stroke={hexToRgba(theme.colors[color], alpha)}
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"

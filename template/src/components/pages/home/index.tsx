@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
-import { Flex, Space, Text } from 'src/components/atoms'
+import { Flex, Icon, Space, Text } from 'src/components/atoms'
 import { Button, Input } from 'src/components/molecules'
 import { useGeneralContext } from 'src/contexts/general'
 
 export default function (): JSX.Element {
-  const [text, setText] = useState<string>('Some title')
+  const [text, setText] = useState<string>(
+    'Some title ------------------ 123123123123123123123123123'
+  )
 
   const generalContext = useGeneralContext()
 
@@ -30,6 +32,19 @@ export default function (): JSX.Element {
         <Text type="body2">Body 2</Text>
         <Text type="body3">Body 3</Text>
         <Space size="large" />
+        <Input
+          label="Title"
+          left={({ alpha, color }) => (
+            <Icon.ICExclamation {...{ alpha, color }} />
+          )}
+          onChangeText={_text => setText(_text)}
+          placeholder="Enter your title"
+          right={({ alpha, color }) => (
+            <Icon.ICExclamation {...{ alpha, color }} />
+          )}
+          value={text}
+        />
+        <Space size="small" />
         <Input label="Title" placeholder="Enter your title" />
         <Space size="small" />
         <Input
