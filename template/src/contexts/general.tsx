@@ -3,9 +3,10 @@ import React, {
   PropsWithChildren,
   useCallback,
   useContext,
+  useEffect,
   useState
 } from 'react'
-import { Appearance } from 'react-native'
+import { Appearance, Platform, StatusBar } from 'react-native'
 
 type Props = PropsWithChildren<{
   //
@@ -31,6 +32,11 @@ export default function ({ children }: Props): JSX.Element {
 
   const toggleDarkMode = useCallback(async () => {
     setDarkMode(!darkMode)
+  }, [darkMode])
+
+  useEffect(() => {
+    Platform.OS === 'android' && StatusBar.setTranslucent(true)
+    StatusBar.setBarStyle(darkMode ? 'light-content' : 'dark-content')
   }, [darkMode])
 
   return (
