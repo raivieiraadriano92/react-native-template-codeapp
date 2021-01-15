@@ -28,7 +28,9 @@
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [EditorConfig](https://editorconfig.org/)
+- [CodePush](https://microsoft.github.io/code-push/)
 - Basic components full responsive
+- Dark mode
 
 ## :arrow_forward: Usage
 
