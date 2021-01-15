@@ -2,6 +2,7 @@ import 'react-native-gesture-handler'
 
 import React from 'react'
 import { ThemeProvider } from 'styled-components/native'
+import CodePush from 'react-native-code-push'
 
 import GeneralProvider, { useGeneralContext } from './contexts/general'
 import Navigator from './navigator'
@@ -24,10 +25,12 @@ function Wrap(): JSX.Element {
   )
 }
 
-export default function (): JSX.Element {
+function App(): JSX.Element {
   return (
     <GeneralProvider>
       <Wrap />
     </GeneralProvider>
   )
 }
+
+export default CodePush(App)
