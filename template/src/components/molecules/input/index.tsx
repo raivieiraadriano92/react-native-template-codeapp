@@ -76,6 +76,8 @@ export default function ({
       _style.borderColor = theme.colors.primary
     } else if (status) {
       _style.borderColor = theme.colors[statusColor]
+    } else if (!editable) {
+      _style.borderColor = hexToRgba(theme.colors.text, 0.4)
     }
 
     return _style
