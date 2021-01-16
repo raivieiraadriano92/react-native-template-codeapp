@@ -31,7 +31,8 @@ export default function ({
   const style: PressableProps['style'] = useCallback(
     ({ pressed }: PressableStateCallbackType) => {
       const _style: PressableProps['style'] = {
-        borderWidth: 1
+        borderWidth: 1,
+        paddingHorizontal: theme.spacing.small
       }
 
       if (size === 'default') {

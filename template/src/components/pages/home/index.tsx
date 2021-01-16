@@ -1,16 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 import { Flex, Icon, Space, Text } from 'src/components/atoms'
 import { Button, Input } from 'src/components/molecules'
 import { useGeneralContext } from 'src/contexts/general'
+import { RootStackNavigator } from 'src/navigator'
 
 export default function (): JSX.Element {
-  const [text, setText] = useState<string>(
-    'Some title ------------------ 123123123123123123123123123'
-  )
+  const navigation = useNavigation<StackNavigationProp<RootStackNavigator>>()
+
+  const [text, setText] = useState<string>('Some title')
 
   const generalContext = useGeneralContext()
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button
+          onPress={() => {
+            navigation.navigate('MakeSomething')
+          }}
+          size="small"
+          title="Make"
+          type="tertiary"
+        />
+      ),
+      title: 'Hello, John Doe!'
+    })
+  }, [navigation])
 
   return (
     <ScrollView>

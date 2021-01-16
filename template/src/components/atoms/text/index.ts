@@ -34,12 +34,12 @@ export const styles: {
     fontWeight: '600'
   },
   h3: {
-    fontSize: 20,
-    fontWeight: '700'
+    fontSize: 24,
+    fontWeight: '600'
   },
   h4: {
-    fontSize: 20,
-    fontWeight: '500'
+    fontSize: 18,
+    fontWeight: '600'
   },
   subtitle1: {
     fontSize: 16,
