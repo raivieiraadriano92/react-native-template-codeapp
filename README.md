@@ -59,9 +59,9 @@ Changing CodePush keys:
 
 1. Open `ios/MyAwesomeApp.xcworkspace` in Xcode or run `xed -b ios`
 2. Go to `Build Settings`
-   ![build.gradle](https://raw.githubusercontent.com/raivieiraadriano92/react-native-template-codeapp/master/assets/images/build.gradle.png)
+   ![build.gradle](https://raw.githubusercontent.com/raivieiraadriano92/react-native-template-codeapp/master/assets/images/ios-codepush-1.png)
 3. In `Build Settings` search by `codepush_key`.
-   ![build.gradle](https://raw.githubusercontent.com/raivieiraadriano92/react-native-template-codeapp/master/assets/images/build.gradle.png)
+   ![build.gradle](https://raw.githubusercontent.com/raivieiraadriano92/react-native-template-codeapp/master/assets/images/ios-codepush-2.png)
 4. So here we have `Debug`, `Staging` and `Release` keys, just change the values by your CodePush key.
 
 ## :computer: Contributing
