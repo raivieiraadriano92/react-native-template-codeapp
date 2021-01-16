@@ -53,7 +53,7 @@ Changing CodePush keys:
 1. Open the file `android/app/build.gradle`
 2. In `buildTypes` we have three builds `debug`, `releaseStaging` and `release`. So just change `CodePushDeploymentKey` value by your key.
 
-![build.gradle](https://cloud.githubusercontent.com/assets/116461/11601733/13011d5e-9a8a-11e5-9ce2-b100498ffb34.png)
+![build.gradle](https://raw.githubusercontent.com/raivieiraadriano92/react-native-template-codeapp/master/assets/images/build.gradle.png)
 
 ## :computer: Contributing
 
