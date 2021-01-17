@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { StackNavigationProp } from '@react-navigation/stack'
+import { NativeStackNavigationProp } from 'react-native-screens/native-stack'
 import { useTheme } from 'styled-components/native'
 
 import { Flex, Icon, Space, Text } from 'src/components/atoms'
@@ -12,7 +12,9 @@ import { hexToRgba } from 'src/utils'
 export default function (): JSX.Element {
   const generalContext = useGeneralContext()
 
-  const navigation = useNavigation<StackNavigationProp<RootStackNavigator>>()
+  const navigation = useNavigation<
+    NativeStackNavigationProp<RootStackNavigator>
+  >()
 
   const [text, setText] = useState<string>('Some title')
 
