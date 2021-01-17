@@ -2,6 +2,7 @@ import React, { PropsWithChildren } from 'react'
 import { ScrollView, ScrollViewProps } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import normalize from 'react-native-normalize'
 
 import { Flex } from 'src/components/atoms'
 
@@ -21,8 +22,8 @@ export default function ({
 }: Props): JSX.Element {
   const insets = useSafeAreaInsets()
 
-  const heightBottom = 48 + (disableBottomInset ? 0 : insets.bottom)
-  const heightTop = 48 + (disableTopInset ? 0 : insets.top)
+  const heightBottom = normalize(48 + (disableBottomInset ? 0 : insets.bottom))
+  const heightTop = normalize(48 + (disableTopInset ? 0 : insets.top))
 
   return (
     <Flex flex>
