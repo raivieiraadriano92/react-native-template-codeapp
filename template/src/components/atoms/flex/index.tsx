@@ -116,6 +116,7 @@ export default function ({
         },
         style
       )}
+      testID="container"
     >
       {children}
     </View>
