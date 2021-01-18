@@ -1,4 +1,15 @@
+import { Platform } from 'react-native'
 import { DefaultTheme } from 'styled-components/native'
+
+export const fonts = {
+  bold: `Manrope${Platform.OS === 'ios' ? '-' : '_'}Bold`,
+  extraBold: `Manrope${Platform.OS === 'ios' ? '-' : '_'}ExtraBold`,
+  extraLight: `Manrope${Platform.OS === 'ios' ? '-' : '_'}ExtraLight`,
+  light: `Manrope${Platform.OS === 'ios' ? '-' : '_'}Light`,
+  medium: `Manrope${Platform.OS === 'ios' ? '-' : '_'}Medium`,
+  regular: `Manrope${Platform.OS === 'ios' ? '-' : '_'}Regular`,
+  semiBold: `Manrope${Platform.OS === 'ios' ? '-' : '_'}SemiBold`
+}
 
 const spacing: DefaultTheme['spacing'] = {
   tinyest: 4,

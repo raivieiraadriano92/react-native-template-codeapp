@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack'
 import { useTheme } from 'styled-components/native'
 
 import { Home, MakeSomething } from 'src/components/pages'
+import { styles as TextStyles } from 'src/components/atoms/text'
 
 export type RootStackNavigator = {
   Home: undefined
@@ -27,10 +28,14 @@ export default function (): JSX.Element {
           },
           headerHideShadow: true,
           headerLargeTitle: true,
+          headerLargeTitleStyle: {
+            ...TextStyles.h2
+          },
           headerStyle: {
             backgroundColor: theme.colors.systemBackgroundPrimary
           },
           headerTintColor: theme.colors.text,
+          headerTitleStyle: { ...TextStyles.subtitle1 },
           stackAnimation: 'slide_from_right'
         }}
       >

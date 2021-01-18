@@ -2,6 +2,7 @@ import { TextStyle } from 'react-native'
 import styled, { DefaultTheme } from 'styled-components/native'
 import normalize from 'react-native-normalize'
 
+import { fonts } from 'src/theme'
 import { hexToRgba } from 'src/utils'
 
 type Type =
@@ -23,47 +24,47 @@ export type Props = Pick<TextStyle, 'flexWrap' | 'textAlign'> & {
 }
 
 export const styles: {
-  [K in Type]: Required<Pick<TextStyle, 'fontSize' | 'fontWeight'>>
+  [K in Type]: Required<Pick<TextStyle, 'fontFamily' | 'fontSize'>>
 } = {
   h1: {
-    fontSize: 48,
-    fontWeight: '600'
+    fontFamily: fonts.semiBold,
+    fontSize: 48
   },
   h2: {
-    fontSize: 34,
-    fontWeight: '600'
+    fontFamily: fonts.semiBold,
+    fontSize: 34
   },
   h3: {
-    fontSize: 24,
-    fontWeight: '600'
+    fontFamily: fonts.bold,
+    fontSize: 24
   },
   h4: {
-    fontSize: 18,
-    fontWeight: '600'
+    fontFamily: fonts.medium,
+    fontSize: 18
   },
   subtitle1: {
-    fontSize: 16,
-    fontWeight: '700'
+    fontFamily: fonts.bold,
+    fontSize: 16
   },
   subtitle2: {
-    fontSize: 14,
-    fontWeight: '700'
+    fontFamily: fonts.bold,
+    fontSize: 14
   },
   body1: {
-    fontSize: 16,
-    fontWeight: '400'
+    fontFamily: fonts.regular,
+    fontSize: 16
   },
   body2: {
-    fontSize: 14,
-    fontWeight: '400'
+    fontFamily: fonts.regular,
+    fontSize: 14
   },
   body3: {
-    fontSize: 12,
-    fontWeight: '400'
+    fontFamily: fonts.regular,
+    fontSize: 12
   },
   body4: {
-    fontSize: 10,
-    fontWeight: '500'
+    fontFamily: fonts.regular,
+    fontSize: 10
   }
 }
 
@@ -71,7 +72,7 @@ export default styled.Text<Props>`
   ${props => (props.flexWrap ? `flex:1; flex-wrap: ${props.flexWrap};` : '')}
   color: ${props =>
     hexToRgba(props.theme.colors[props.color || 'text'], props.alpha)};
+  font-family: ${props => styles[props.type].fontFamily};
   font-size: ${props => normalize(styles[props.type].fontSize)}px;
-  font-weight: ${props => styles[props.type].fontWeight || 'normal'};
   text-align: ${props => props.textAlign || 'left'};
 `
