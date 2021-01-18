@@ -9,20 +9,8 @@ import DefaultTheme from 'src/theme'
 import Flex from './index'
 
 describe('atoms/flex', () => {
-  it('should be able render children', () => {
-    const { findByText } = render(
-      <ThemeProvider theme={DefaultTheme}>
-        <Flex>
-          <Text>test</Text>
-        </Flex>
-      </ThemeProvider>
-    )
-
-    expect(findByText('test')).toBeTruthy()
-  })
-
-  it('should have right styles', () => {
-    const { getByTestId } = render(
+  it('should be able to render correctly', () => {
+    const { findByText, getByTestId, toJSON } = render(
       <ThemeProvider theme={DefaultTheme}>
         <Flex
           flex
@@ -40,13 +28,26 @@ describe('atoms/flex', () => {
           paddingRight="medium"
           paddingTop="medium"
           paddingVertical="medium"
-        />
+          style={{ backgroundColor: DefaultTheme.colors.primary }}
+        >
+          <Text>test</Text>
+        </Flex>
       </ThemeProvider>
     )
 
+    const json = toJSON()
+
     const component = getByTestId('container')
 
-    expect(component.props.style).toMatchObject({
+    expect(json).toMatchSnapshot()
+
+    expect(findByText('test')).toBeTruthy()
+
+    expect({
+      ...component.props.style[0],
+      ...component.props.style[1]
+    }).toMatchObject({
+      backgroundColor: DefaultTheme.colors.primary,
       flex: 1,
       margin: normalize(DefaultTheme.spacing.medium),
       marginBottom: normalize(DefaultTheme.spacing.medium),
@@ -62,24 +63,6 @@ describe('atoms/flex', () => {
       paddingRight: normalize(DefaultTheme.spacing.medium),
       paddingTop: normalize(DefaultTheme.spacing.medium),
       paddingVertical: normalize(DefaultTheme.spacing.medium)
-    })
-  })
-
-  it('should have right merged styles', () => {
-    const { getByTestId } = render(
-      <ThemeProvider theme={DefaultTheme}>
-        <Flex flex style={{ backgroundColor: DefaultTheme.colors.primary }} />
-      </ThemeProvider>
-    )
-
-    const component = getByTestId('container')
-
-    expect({
-      ...component.props.style[0],
-      ...component.props.style[1]
-    }).toMatchObject({
-      flex: 1,
-      backgroundColor: DefaultTheme.colors.primary
     })
   })
 })

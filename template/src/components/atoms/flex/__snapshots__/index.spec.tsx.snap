@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`atoms/flex should be able to render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "margin": 48,
+        "marginBottom": 48,
+        "marginHorizontal": 48,
+        "marginLeft": 48,
+        "marginRight": 48,
+        "marginTop": 48,
+        "marginVertical": 48,
+        "padding": 48,
+        "paddingBottom": 48,
+        "paddingHorizontal": 48,
+        "paddingLeft": 48,
+        "paddingRight": 48,
+        "paddingTop": 48,
+        "paddingVertical": 48,
+      },
+      Object {
+        "backgroundColor": "#5460FE",
+      },
+    ]
+  }
+  testID="container"
+>
+  <Text>
+    test
+  </Text>
+</View>
+`;
