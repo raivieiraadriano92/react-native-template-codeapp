@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`atoms / Space should be able to render correctly 1`] = `
+<View
+  style={
+    Object {
+      "height": 48,
+      "width": "100%",
+    }
+  }
+  testID="container"
+/>
+`;
+
+exports[`atoms / Space should be able to render correctly with other props 1`] = `
+<View
+  style={
+    Object {
+      "height": "100%",
+      "width": 32,
+    }
+  }
+  testID="container"
+/>
+`;

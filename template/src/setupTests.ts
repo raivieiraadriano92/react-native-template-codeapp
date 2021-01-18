@@ -26,3 +26,5 @@ jest.mock('react-native-screens', () => {
   RealComponent.enableScreens = jest.fn()
   return RealComponent
 })
+
+jest.useFakeTimers()

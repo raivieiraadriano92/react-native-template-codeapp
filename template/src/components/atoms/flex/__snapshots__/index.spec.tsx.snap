@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`atoms/flex should be able to render correctly 1`] = `
+exports[`atoms / Flex should be able to render correctly 1`] = `
 <View
   style={
     Array [
@@ -32,4 +32,11 @@ exports[`atoms/flex should be able to render correctly 1`] = `
     test
   </Text>
 </View>
+`;
+
+exports[`atoms / Flex should be able to render without props 1`] = `
+<View
+  style={Object {}}
+  testID="container"
+/>
 `;
