@@ -127,7 +127,7 @@ export default function ({
             style={{
               height: iconSize,
               position: 'absolute',
-              right: normalize(theme.spacing.small),
+              left: normalize(theme.spacing.small),
               top: (inputHeight - iconSize) / 2,
               width: iconSize
             }}
@@ -161,7 +161,7 @@ export default function ({
                 style={{
                   height: iconSize,
                   position: 'absolute',
-                  left: normalize(theme.spacing.small),
+                  right: normalize(theme.spacing.small),
                   top: (inputHeight - iconSize) / 2,
                   width: iconSize
                 }}
